@@ -1,3 +1,3 @@
 # GPIOlib
 
-a c++ lib to interact with Raspberry Pi GPIOs.
+A c++ lib to interact with Raspberry Pi GPIOs.
