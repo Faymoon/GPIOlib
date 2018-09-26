@@ -94,6 +94,7 @@ namespace gpio
 	{
 		auto& file = m_outPins.find(pin)->second;
 
+		file.seekp(0);
 		file.put(value ? '1' : '0');
 		file.flush();
 	}

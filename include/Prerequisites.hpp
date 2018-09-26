@@ -1,13 +1,13 @@
 #ifndef GPIO_PREREQUISITES_HPP
 #define GPIO_PREREQUISITES_HPP
 
-#define GPIO_IMPORT __declspec(dllimport)
-#define GPIO_EXPORT __declspec(dllexport)
+#define GPIO_IMPORT __attribute__((visibility ("default")))
+#define GPIO_EXPORT __attribute__((visibility ("default")))
 
 #ifdef GPIO_BUILD
-	#define GPIO_API __attribute__((visibility ("default")))
+	#define GPIO_API GPIO_EXPORT
 #else
-	#define GPIO_API __attribute__((visibility ("default")))
+	#define GPIO_API GPIO_IMPORT
 #endif // GPIO_BUILD
 
 
