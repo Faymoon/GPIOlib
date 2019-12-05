@@ -2,34 +2,26 @@
 #define GPIO_OUTPUTPIN_HPP
 
 #include <Prerequisites.hpp>
+#include <Pin.hpp>
 
 #include <cstdint>
+#include <ofstream>
 
 namespace gpio
 {
-	class GPIO_API OutputPin
+	class GPIO_API OutputPin : public Pin
 	{
 		public:
-			OutputPin() = delete;
 			OutputPin(std::uint8_t pin);
-			OutputPin(const OutputPin&) = delete;
-			OutputPin(OutputPin&&) = delete;
-
-			~OutputPin() = default;
-
-			inline std::uint8_t GetPin() const;
 
 			inline void On();
 			inline void Off();
 
 			void SetValue(bool value);
 
-			OutputPin& operator=(const OutputPin&) = delete;
-			OutputPin& operator=(OutputPin&&) = delete;
-
 		private:
 
-			std::uint8_t m_pin;
+			std::ofstream m_outFile;
 	};
 }
 

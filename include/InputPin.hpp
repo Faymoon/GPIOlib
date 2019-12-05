@@ -2,34 +2,19 @@
 #define GPIO_INPUTPIN_HPP
 
 #include <Prerequisites.hpp>
+#include <Pin.hpp>
 
 #include <cstdint>
 
 namespace gpio
 {
-	class GPIO_API InputPin
+	class GPIO_API InputPin : public Pin
 	{
 		public:
-			InputPin() = delete;
-			InputPin(std::uint8_t pin);
-			InputPin(const InputPin&) = delete;
-			InputPin(InputPin&&) = delete;
-
-			~InputPin() = default;
-
-			inline std::uint8_t GetPin() const;
+			Pin(std::uint8_t pin);
 
 			bool ReadValue() const;
-
-			InputPin& operator=(const InputPin&) = delete;
-			InputPin& operator=(InputPin&&) = delete;
-
-		private:
-
-			std::uint8_t m_pin;
 	};
 }
-
-#include <InputPin.inl>
 
 #endif // !GPIO_INPUTPIN_HPP

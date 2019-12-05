@@ -1,18 +1,27 @@
 
 #include <InputPin.hpp>
-#include <Device.hpp>
+
+#include <fstream>
+#include <string>
 
 namespace gpio
 {
 	InputPin::InputPin(std::uint8_t pin)
 		:
-		m_pin(pin)
+		Pin(pin)
 	{
-		Device::instance->RegisterPin(pin, Device::PinMode::Input);
+		std::ofstream directionFile("/sys/class/gpio/gpio" + std::to_string(m_pin) + "/direction");
+		directionFile << "in";
+
+		m_inFile = std::ifstream("/sys/class/gpio/gpio" + std::to_string(m_pin) + "/value");
 	}
 
 	bool InputPin::ReadValue() const
 	{
-		return Device::instance->ReadPinValue(m_pin);
+		char c;
+		m_inFile >> c;
+		m_inFile.seekg(0);
+
+		return c == '1' ? true : false ;
 	}
 }
