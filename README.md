@@ -12,7 +12,7 @@ $ premake5 [the way you want to compile]
 ```
 To chose the premake action see the doc or `premake5 --help`.
 
-On any linux system :
+I recommand you to use the gmake action and then compile like this on your Raspberry Pi. That :
 ```bash
 $ premake5 gmake
 $ cd build
