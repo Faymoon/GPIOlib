@@ -16,7 +16,7 @@ namespace gpio
 		m_inFile = std::ifstream("/sys/class/gpio/gpio" + std::to_string(m_pin) + "/value");
 	}
 
-	bool InputPin::ReadValue() const
+	bool InputPin::ReadValue()
 	{
 		char c;
 		m_inFile >> c;

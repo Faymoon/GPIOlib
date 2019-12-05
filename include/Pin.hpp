@@ -11,7 +11,7 @@ namespace gpio
 	{
 		public:
 			Pin() = delete;
-			virtual Pin(std::uint8_t pin) = 0;
+			Pin(std::uint8_t pin);
 			Pin(const Pin&) = delete;
 			Pin(Pin&&) = delete;
 

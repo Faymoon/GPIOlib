@@ -5,7 +5,7 @@
 #include <Pin.hpp>
 
 #include <cstdint>
-#include <ofstream>
+#include <fstream>
 
 namespace gpio
 {

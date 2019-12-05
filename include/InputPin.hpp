@@ -5,15 +5,20 @@
 #include <Pin.hpp>
 
 #include <cstdint>
+#include <fstream>
 
 namespace gpio
 {
 	class GPIO_API InputPin : public Pin
 	{
 		public:
-			Pin(std::uint8_t pin);
+			InputPin(std::uint8_t pin);
 
-			bool ReadValue() const;
+			bool ReadValue();
+
+		private:
+
+			std::ifstream m_inFile;
 	};
 }
 
